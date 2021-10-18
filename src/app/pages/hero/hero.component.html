@@ -1,0 +1,17 @@
+<mat-card class="card">
+  <mat-card-header>
+    <div mat-card-avatar class="header-image" style="background-image:url('{{hero.thumbnail.path}}.{{hero.thumbnail.extension}}')">
+    </div>
+    <mat-card-title>{{hero.name}}</mat-card-title>
+    <mat-card-subtitle>
+      {{hero.description}}
+      <button mat-flat-button color="warn" (click)="onClick()">VIEW MORE</button>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <h4>Related comics</h4>
+        <div class="related-comics" *ngFor="let comic of hero.comics.items">
+          {{comic.name}}
+        </div>
+  </mat-card-content>
+</mat-card>
