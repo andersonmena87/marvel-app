@@ -17,9 +17,16 @@
     </app-hero>
   </section>
   <section class="favourites">
-    <h2>My fauvorites</h2>
-    <div *ngFor="let favorite of favourites">
-      {{favorite.title}}
+    <h2>My favourites</h2>
+    <div *ngFor="let favorite of favourites$ | async">
+      <mat-card class="favorite-card">
+        <img class="img-favorite" mat-card-image style="background-image:url('{{favorite.thumbnail.path}}.{{favorite.thumbnail.extension}}')">
+        <mat-card-content>
+          <p>
+            {{favorite.description}}
+          </p>
+        </mat-card-content>
+      </mat-card>
     </div>
   </section>
 </div>

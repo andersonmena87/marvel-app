@@ -14,11 +14,17 @@
 
 .favourites {
   width: 30%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  background: #F4F4F4;
+  text-align: center;
+  background: #EBEBEB;
 }
+
+.favourites .mat-card{
+  background: #EBEBEB;
+  border: 0;
+  margin-bottom: 10px;
+  box-shadow:none;
+}
+
 
 .characters {
   display: flex;
@@ -34,4 +40,11 @@
 
 .characters div {
   padding-right: 20px;
+}
+
+.img-favorite{
+  height: 200px;
+  width: 200px;
+  background-size: 200px;
+  background-repeat: no-repeat;
 }

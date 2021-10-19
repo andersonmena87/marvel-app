@@ -3,6 +3,7 @@ import { HeroesService } from "./services/heroes.service";
 import { tap } from "rxjs/operators";
 import { iHero } from "./interface/hero.interface";
 import { iComic } from "../comic/interface/comic.interface";
+import { FavouritesService } from "src/app/shared/services/favoutitesService";
 
 @Component({
   selector: 'app-heroes',
@@ -12,8 +13,8 @@ import { iComic } from "../comic/interface/comic.interface";
 
 export class HeroesComponent implements OnInit {
   heroes!:iHero[];
-  favourites!:iComic[];
-  constructor(private heroesSvc: HeroesService) {}
+  favourites$ = this.favouritesSvc.favoriteAction$;
+  constructor(private heroesSvc: HeroesService, private favouritesSvc: FavouritesService) {}
   ngOnInit(): void{
     this.heroesSvc.getHeroes().pipe(
       tap((res:any) => {
@@ -22,11 +23,11 @@ export class HeroesComponent implements OnInit {
       })
     )
     .subscribe();
+
+    this.favouritesSvc.loadFavourites();
   }
 
   addToFavourite(comic: iComic): void {
-    console.log("***FAvoritos");
-    console.log(comic);
-    this.favourites.push(comic);
+    this.favouritesSvc.updateFavourites(comic)
   }
 }

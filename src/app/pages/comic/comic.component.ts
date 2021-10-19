@@ -19,7 +19,6 @@ export class ComicComponent {
         let results = res.data.results;
         console.log(results);
         this.comic = results[0];
-        console.log(this.comic.title)
       })
     )
     .subscribe();
