@@ -5,13 +5,19 @@
     <mat-card-title>{{hero.name}}</mat-card-title>
     <mat-card-subtitle>
       {{hero.description}}
-      <button mat-flat-button color="warn" (click)="onClick()">VIEW MORE</button>
+      <button mat-flat-button color="warn" (click)="onClickHero()">VIEW MORE</button>
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <h4>Related comics</h4>
-        <div class="related-comics" *ngFor="let comic of hero.comics.items">
-          {{comic.name}}
+        <div class="comics">
+          <ul>
+            <li class="related-comics" *ngFor="let comic of hero.comics.items">
+              <a (click)="onClickComic(comic.resourceURI)">
+                {{comic.name}}
+              </a>
+            </li>
+          </ul>
         </div>
   </mat-card-content>
 </mat-card>

@@ -1,4 +1,7 @@
 import { Component, Input, Output, EventEmitter} from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ComicComponent } from '../comic/comic.component';
+import { iComic } from '../comic/interface/comic.interface';
 import { iHero } from '../heroes/interface/hero.interface';
 
 @Component({
@@ -8,10 +11,21 @@ import { iHero } from '../heroes/interface/hero.interface';
 })
 
 export class HeroComponent {
+  constructor(public dialog: MatDialog) {}
   @Input() hero!: iHero;
-  @Output() viewHero = new EventEmitter<iHero>();
-  onClick(): void {
-    console.log("click", this.hero);
-    this.viewHero.emit(this.hero);
+  @Output() addToFavouriteClick = new EventEmitter<iComic>();
+  onClickHero(): void {
+    //console.log(this.hero);
+  }
+  onClickComic(resourceUri:string): void {
+    const dialogRef = this.dialog.open(ComicComponent, {
+        data: {
+          resourceUri: resourceUri
+        }
+      });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.addToFavouriteClick.emit(result);
+    });
   }
 }

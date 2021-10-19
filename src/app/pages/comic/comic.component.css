@@ -1,0 +1,11 @@
+.content-comic {
+  width: 600px;
+}
+
+.header-comic {
+  height: 200px;
+  width: 200px;
+  background-size: 200px;
+  background-repeat: no-repeat;
+  border-radius: 0;
+}

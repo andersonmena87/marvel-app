@@ -12,3 +12,17 @@
   background-size: 200px;
   background-repeat: no-repeat;
 }
+
+.comics {
+  column-count: 2;
+}
+
+.comics ul {
+  margin: 0;
+  padding-left: 0;
+}
+
+.comics ul li {
+  list-style: none;
+  margin-bottom: 5px;
+}

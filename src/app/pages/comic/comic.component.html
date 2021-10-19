@@ -1,0 +1,14 @@
+<mat-dialog-content class="mat-typography content-comic">
+  <mat-card-header>
+    <div mat-card-avatar class="header-comic" style="background-image:url('{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}')">
+    </div>
+    <mat-card-title>{{comic.title}}</mat-card-title>
+    <mat-card-subtitle>
+      {{comic.description}}
+    </mat-card-subtitle>
+  </mat-card-header>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="comic" cdkFocusInitial>ADDED TO FAVOURITES</button>
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

@@ -1,7 +1,6 @@
 .content-heroes {
-  position: absolute;
-  width: 100%;
-  height: auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .heroes {
@@ -10,20 +9,23 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
   background: #F4F4F4;
 }
 
 .favourites {
   width: 30%;
-  display: inline-block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: #F4F4F4;
 }
 
 .characters {
   display: flex;
   justify-content: space-between;
-  width: 70%;
+  width: 100%;
   margin-top: 2%;
+  padding: 0 10px 0 12px;
 }
 
 .characters h2 {

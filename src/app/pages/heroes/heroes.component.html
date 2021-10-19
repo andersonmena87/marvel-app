@@ -1,17 +1,25 @@
 <div class="content-heroes">
-  <div class="characters">
-    <h2>Characters</h2>
-    <div>
-      <select class="sort">
-        <option value=""></option>
-        <option value="byName">Sort by name</option>
-      </select>
-    </div>
-  </div>
   <section class="heroes">
-    <app-hero [hero]="hero" *ngFor="let hero of heroes"></app-hero>
+    <div class="characters">
+      <h2>Characters</h2>
+      <div>
+        <select class="sort">
+          <option value=""></option>
+          <option value="byName">Sort by name</option>
+        </select>
+      </div>
+    </div>
+    
+    <app-hero
+    (addToFavouriteClick)="addToFavourite($event)"
+     [hero]="hero" 
+     *ngFor="let hero of heroes">
+    </app-hero>
   </section>
-  <section class="fauvorites">
+  <section class="favourites">
     <h2>My fauvorites</h2>
+    <div *ngFor="let favorite of favourites">
+      {{favorite.title}}
+    </div>
   </section>
 </div>

@@ -8,13 +8,15 @@ import { MaterialModule } from './material.module';
 import { HeroesComponent } from './pages/heroes/heroes.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeroComponent } from './pages/hero/hero.component';
+import { ComicComponent } from './pages/comic/comic.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HeroesComponent,
-    HeroComponent
+    HeroComponent,
+    ComicComponent
   ],
   imports: [
     BrowserModule,
