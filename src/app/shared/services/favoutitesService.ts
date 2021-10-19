@@ -31,6 +31,21 @@ export class FavouritesService {
     this.favoriteSubject.next(this.favourites); 
   }
 
+  getFavourites(): any {
+    try {
+      let favouritesStorage = JSON.parse(localStorage.getItem(my_favorites)!);
+      if(favouritesStorage && favouritesStorage.length > 0)
+        this.favourites = favouritesStorage;
+      else
+        this.favourites = [];
+  
+      this.favoriteSubject.next(this.favourites); 
+      return favouritesStorage; 
+    } catch (error) {
+      console.log('Error localstorage', error);
+    }
+  }
+
   private addToFavourite(comic:iComic): void {
     this.favourites.push(comic);
     this.favoriteSubject.next(this.favourites);

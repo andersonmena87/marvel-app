@@ -34,8 +34,9 @@
   padding: 0 10px 0 12px;
 }
 
-.characters h2 {
-  padding-left: 20px;
+.characters .content-image {
+  display: flex;
+  padding-left: 6px;
 }
 
 .characters div {

@@ -26,3 +26,11 @@
   list-style: none;
   margin-bottom: 5px;
 }
+
+.comics a {
+  cursor:  pointer;
+}
+
+.comics a:hover {
+  color:  red;
+}

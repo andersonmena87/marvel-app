@@ -12,6 +12,7 @@ import { FavouritesService } from "src/app/shared/services/favoutitesService";
 })
 
 export class HeroesComponent implements OnInit {
+  charactersSrc = './assets/images/characters.png';
   heroes!:iHero[];
   favourites$ = this.favouritesSvc.favoriteAction$;
   constructor(private heroesSvc: HeroesService, private favouritesSvc: FavouritesService) {}
@@ -28,6 +29,15 @@ export class HeroesComponent implements OnInit {
   }
 
   addToFavourite(comic: iComic): void {
-    this.favouritesSvc.updateFavourites(comic)
+    const { id } = comic;
+    const currentFavourites =  this.favouritesSvc.getFavourites();
+    const found = !!currentFavourites.find((fav: iComic) => fav.id == id);
+    if(comic){
+      if(!found)
+      this.favouritesSvc.updateFavourites(comic)
+      else
+      alert("Comic has already been added")
+    }
   }
+
 }
