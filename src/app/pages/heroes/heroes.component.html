@@ -12,12 +12,13 @@
         </select>
       </div>
     </div>
-    
-    <app-hero
-    (addToFavouriteClick)="addToFavourite($event)"
-     [hero]="hero" 
-     *ngFor="let hero of heroes">
-    </app-hero>
+    <div class="content-heroes">
+      <app-hero
+        (addToFavouriteClick)="addToFavourite($event)"
+        [hero]="hero" 
+        *ngFor="let hero of heroes | filtro:0:search">
+      </app-hero>
+    </div>
   </section>
   <section class="favourites">
     <h2>My favourites</h2>

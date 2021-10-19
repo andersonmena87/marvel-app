@@ -4,8 +4,10 @@
     </div>
     <mat-card-title>{{hero.name}}</mat-card-title>
     <mat-card-subtitle>
-      {{hero.description}}
-      <button mat-flat-button color="warn" (click)="onClickHero()">VIEW MORE</button>
+      <div class="hero-description">
+        {{hero.description}}
+      </div>
+      <button class="btn-card" mat-flat-button color="warn" (click)="onClickHero()">VIEW MORE</button>
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>

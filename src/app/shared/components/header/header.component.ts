@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   imageSrc = './assets/images/marvel.png';
+  imgSearch = './assets/images/search.png';
+  @Input() searchSubject!: Subject<string>;
+
+  onSearchHero(search: string) {
+    this.searchSubject.next(search);
+  }
 }

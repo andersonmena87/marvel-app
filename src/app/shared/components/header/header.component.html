@@ -1,5 +1,12 @@
 <mat-toolbar class="header">
   <span><img class="img-marvel" src="{{imageSrc}}"></span>
+  <input 
+  class="search-hero form-control" 
+  type="text"
+  placeholder="Search character..."
+  #txtSearchHero
+  (keyup)="onSearchHero( txtSearchHero.value )"
+  style="background-image:url('{{imgSearch}}')"/>
 </mat-toolbar>
 
 

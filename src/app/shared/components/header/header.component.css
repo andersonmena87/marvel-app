@@ -6,3 +6,13 @@
   width: 116px;
   margin-top: 20px;
 }
+
+.search-hero {
+  width: 46%;
+  margin-left: 15%;
+  height: 50%;
+  font-size: 16px;
+  padding: 5px;
+  background: no-repeat 573px 1px;
+  background-color: white;
+}

@@ -6,9 +6,7 @@
 .heroes {
   width:70%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   background: #F4F4F4;
 }
 
@@ -29,7 +27,6 @@
 .characters {
   display: flex;
   justify-content: space-between;
-  width: 100%;
   margin-top: 2%;
   padding: 0 10px 0 12px;
 }
@@ -48,4 +45,12 @@
   width: 200px;
   background-size: 200px;
   background-repeat: no-repeat;
+}
+
+.content-heroes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
 }

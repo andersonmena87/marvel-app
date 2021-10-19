@@ -9,6 +9,7 @@ import { HeroesComponent } from './pages/heroes/heroes.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeroComponent } from './pages/hero/hero.component';
 import { ComicComponent } from './pages/comic/comic.component';
+import { FiltroPipe } from "./pages/heroes/pipes/filtro.pipe";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ComicComponent } from './pages/comic/comic.component';
     HeaderComponent,
     HeroesComponent,
     HeroComponent,
-    ComicComponent
+    ComicComponent,
+    FiltroPipe
   ],
   imports: [
     BrowserModule,

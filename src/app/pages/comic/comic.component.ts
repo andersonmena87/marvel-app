@@ -17,7 +17,6 @@ export class ComicComponent {
     this.comicSvc.getComic(this.data.resourceUri).pipe(
       tap((res:any) => {
         let results = res.data.results;
-        console.log(results);
         this.comic = results[0];
       })
     )

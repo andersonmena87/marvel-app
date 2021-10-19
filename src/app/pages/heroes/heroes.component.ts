@@ -1,9 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { HeroesService } from "./services/heroes.service";
 import { tap } from "rxjs/operators";
 import { iHero } from "./interface/hero.interface";
 import { iComic } from "../comic/interface/comic.interface";
 import { FavouritesService } from "src/app/shared/services/favoutitesService";
+import { Subject } from "rxjs";
 
 @Component({
   selector: 'app-heroes',
@@ -12,9 +13,11 @@ import { FavouritesService } from "src/app/shared/services/favoutitesService";
 })
 
 export class HeroesComponent implements OnInit {
+  @Input() searchSubject!: Subject<string>;
   charactersSrc = './assets/images/characters.png';
   heroes!:iHero[];
   favourites$ = this.favouritesSvc.favoriteAction$;
+  search: string = '';
   constructor(private heroesSvc: HeroesService, private favouritesSvc: FavouritesService) {}
   ngOnInit(): void{
     this.heroesSvc.getHeroes().pipe(
@@ -24,6 +27,10 @@ export class HeroesComponent implements OnInit {
       })
     )
     .subscribe();
+
+    this.searchSubject.subscribe((search: string) => {
+      this.search = search;
+    });  
 
     this.favouritesSvc.loadFavourites();
   }
@@ -38,6 +45,10 @@ export class HeroesComponent implements OnInit {
       else
       alert("Comic has already been added")
     }
+  }
+
+  onSearchHero(search: any) {
+    this.search = search;
   }
 
 }
