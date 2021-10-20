@@ -1,0 +1,43 @@
+.content-heroDetail {
+  width: 600px;
+}
+
+.header-heroDetail {
+  height: 200px;
+  width: 200px;
+  background-size: 200px;
+  background-repeat: no-repeat;
+  border-radius: 0;
+}
+
+.content-btn-close {
+  text-align: right;
+}
+
+.btn-close {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.mat-dialog-actions {
+  flex-wrap: nowrap;
+}
+
+.mat-dialog-actions button {
+  width: 50%;
+}
+
+.series {
+  column-count: 2;
+}
+
+.series ul {
+  margin: 0;
+  padding-left: 0;
+}
+
+.series ul li {
+  list-style: none;
+  margin-bottom: 5px;
+}

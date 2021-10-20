@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeroComponent } from './pages/hero/hero.component';
 import { ComicComponent } from './pages/comic/comic.component';
 import { FiltroPipe } from "./pages/heroes/pipes/filtro.pipe";
+import { HeroDetailComponent } from './pages/heroDetail/heroDetail.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FiltroPipe } from "./pages/heroes/pipes/filtro.pipe";
     HeroesComponent,
     HeroComponent,
     ComicComponent,
+    HeroDetailComponent,
     FiltroPipe
   ],
   imports: [

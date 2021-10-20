@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ComicComponent } from '../comic/comic.component';
 import { iComic } from '../comic/interface/comic.interface';
+import { HeroDetailComponent } from '../heroDetail/heroDetail.component';
 import { iHero } from '../heroes/interface/hero.interface';
 
 @Component({
@@ -15,7 +16,11 @@ export class HeroComponent {
   @Input() hero!: iHero;
   @Output() addToFavouriteClick = new EventEmitter<iComic>();
   onClickHero(): void {
-    //console.log(this.hero);
+    const dialogRef = this.dialog.open(HeroDetailComponent, {
+      data: {
+        hero: this.hero
+      }
+    });
   }
   onClickComic(resourceUri:string): void {
     const dialogRef = this.dialog.open(ComicComponent, {
@@ -28,4 +33,5 @@ export class HeroComponent {
       this.addToFavouriteClick.emit(result);
     });
   }
+
 }

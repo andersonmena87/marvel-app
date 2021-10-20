@@ -1,0 +1,23 @@
+<mat-dialog-content class="mat-typography content-heroDetail">
+  <div class="content-btn-close">
+    <img class="btn-close" mat-dialog-close src={{closeSrc}}/>
+  </div>
+  <mat-card-header>
+    <div mat-card-avatar class="header-heroDetail" style="background-image:url('{{heroDetail.thumbnail.path}}.{{heroDetail.thumbnail.extension}}')">
+    </div>
+    <mat-card-title>{{heroDetail.name}}</mat-card-title>
+    <mat-card-subtitle [innerHTML]="heroDetail.description">
+    </mat-card-subtitle>
+  </mat-card-header>
+    <h3>Series</h3>
+        <div class="series">
+          <ul>
+            <li class="related-comics" *ngFor="let heroDetail of heroDetail.series.items">
+                {{heroDetail.name}}
+            </li>
+          </ul>
+        </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

@@ -36,7 +36,6 @@ export class ComicComponent {
   }
 
   onMouseOver(): void {
-    console.log("over");
     this.imgSrc = './assets/images/btn-favourites-primary.png';
   }
 
