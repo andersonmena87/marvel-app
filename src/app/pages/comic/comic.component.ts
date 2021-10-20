@@ -12,6 +12,8 @@ import { ComicService } from './services/comic.service';
 
 export class ComicComponent {
   closeSrc = './assets/images/btn-close.png';
+  imgSrc = './assets/images/btn-favourites-default.png';
+  
   comic:iComic = {
     id:0,
     title:"",
@@ -31,5 +33,14 @@ export class ComicComponent {
       })
     )
     .subscribe();
+  }
+
+  onMouseOver(): void {
+    console.log("over");
+    this.imgSrc = './assets/images/btn-favourites-primary.png';
+  }
+
+  onMouseOut(): void {
+    this.imgSrc = './assets/images/btn-favourites-default.png';
   }
 }

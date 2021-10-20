@@ -19,3 +19,21 @@
   height: 25px;
   cursor: pointer;
 }
+
+.mat-dialog-actions {
+  flex-wrap: nowrap;
+}
+
+.mat-dialog-actions button {
+  width: 50%;
+}
+
+.img-addFavourites{
+  height: 26px;
+  margin-right: 4px;
+}
+
+.btn-addFavourites:hover{
+  color: #D51F25;
+  background: #322827;
+}

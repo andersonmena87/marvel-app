@@ -11,6 +11,9 @@
   </mat-card-header>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button [mat-dialog-close]="comic" cdkFocusInitial>ADDED TO FAVOURITES</button>
+  <button class="btn-addFavourites" mat-button [mat-dialog-close]="comic" cdkFocusInitial (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">
+    <img class="img-addFavourites" [src]="imgSrc"/>
+    ADD TO FAVOURITES
+  </button>
   <button mat-button mat-dialog-close>Cancel</button>
 </mat-dialog-actions>
