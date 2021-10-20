@@ -16,9 +16,15 @@
       <app-hero
         (addToFavouriteClick)="addToFavourite($event)"
         [hero]="hero" 
-        *ngFor="let hero of heroes | filtro:0:search">
+        *ngFor="let hero of heroes | filtro:page:pageSize:search">
       </app-hero>
     </div>
+    <mat-paginator [length]="length"
+               [pageSize]="pageSize"
+               [pageSizeOptions]="pageSizeOptions"
+               (page)="pageEvent($event)"
+               aria-label="Select page">
+    </mat-paginator>
   </section>
   <section class="favourites">
     <h2>My favourites</h2>

@@ -5,6 +5,7 @@ import { iHero } from "./interface/hero.interface";
 import { iComic } from "../comic/interface/comic.interface";
 import { FavouritesService } from "src/app/shared/services/favoutitesService";
 import { Subject } from "rxjs";
+import {PageEvent} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-heroes',
@@ -18,12 +19,19 @@ export class HeroesComponent implements OnInit {
   heroes!:iHero[];
   favourites$ = this.favouritesSvc.favoriteAction$;
   search: string = '';
+  length: number = 0;
+  page: number = 0;
+  pageSize: number = 10;
+  pageSizeOptions: number[] = [10, 25, 100];
   constructor(private heroesSvc: HeroesService, private favouritesSvc: FavouritesService) {}
   ngOnInit(): void{
     this.heroesSvc.getHeroes().pipe(
       tap((res:any) => {
-        let results = res.data.results;
-        this.heroes = results;
+        let results = res.data.results
+        this.heroes = results.filter(function (data:any) {
+            return data.description;
+          });
+        this.length = this.heroes.length;
       })
     )
     .subscribe();
@@ -47,8 +55,15 @@ export class HeroesComponent implements OnInit {
     }
   }
 
-  onSearchHero(search: any) {
+  onSearchHero(search: string) {
     this.search = search;
   }
 
+  pageEvent(e:PageEvent) {
+    this.page = e.pageIndex;
+    this.pageSize = e.pageSize;
+  }
+
 }
+
+

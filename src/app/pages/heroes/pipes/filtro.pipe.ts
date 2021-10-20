@@ -6,11 +6,10 @@ import { iHero } from '../interface/hero.interface';
 })
 export class FiltroPipe implements PipeTransform {
 
-  transform(heroes: iHero[], page: number = 0, search: string): iHero[] {
+  transform(heroes: iHero[], page: number = 0, pageSize: number = 0, search: string): iHero[] {
     if(search.length === 0)
-    return heroes.slice(page, page + 10);
+    return heroes ? heroes.slice(page, page + pageSize): [];
 
-    console.log(heroes)
     const filterHeroes = heroes.filter( hero => hero.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()));
     return filterHeroes;
   }

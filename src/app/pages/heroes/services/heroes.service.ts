@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 
 export class HeroesService {
-  private apiURL = 'https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=6da50ae7a4c936edc073d35e4f2348bd&hash=8f152e4ff3dada52eef532da3feadc0c';
+  private apiURL = 'https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=6da50ae7a4c936edc073d35e4f2348bd&hash=8f152e4ff3dada52eef532da3feadc0c&limit=100';
   constructor(private http: HttpClient) { }
 
   getHeroes():Observable<any[]>{
