@@ -6,17 +6,20 @@
         <h2>Characters</h2>
       </div>
       <div>
-        <select class="sort">
+        <select class="sort"
+          #sort
+          (change)='onOptionsSelected(sort.value)'>
           <option value=""></option>
           <option value="byName">Sort by name</option>
+          <option value="byModified">Sort by date modified</option>
         </select>
       </div>
     </div>
-    <div class="content-heroes">
+    <div class="content-heroes" *ngIf="heroes$ | async as heroesList">
       <app-hero
         (addToFavouriteClick)="addToFavourite($event)"
         [hero]="hero" 
-        *ngFor="let hero of heroes | filtro:page:pageSize:search">
+        *ngFor="let hero of heroesList| filtro:page:pageSize:search">
       </app-hero>
     </div>
     <mat-paginator [length]="length"
@@ -39,8 +42,7 @@
         src={{deleteSrc}}>
         <img class="img-favorite" mat-card-image style="background-image:url('{{favorite.thumbnail.path}}.{{favorite.thumbnail.extension}}')">
         <mat-card-content>
-          <p>
-            {{favorite.description}}
+          <p [innerHTML]="favorite.description">
           </p>
         </mat-card-content>
       </mat-card>

@@ -71,3 +71,10 @@
   right: 89px;
   cursor: pointer;
 }
+
+.sort {
+  width: 200px;
+  height: 41px;
+  font-size: 16px;
+  padding: 10px;
+}

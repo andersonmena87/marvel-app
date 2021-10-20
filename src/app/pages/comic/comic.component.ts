@@ -11,7 +11,17 @@ import { ComicService } from './services/comic.service';
 })
 
 export class ComicComponent {
-  comic!:iComic;
+  closeSrc = './assets/images/btn-close.png';
+  comic:iComic = {
+    id:0,
+    title:"",
+    description:"",
+    thumbnail:{
+      extension:"",
+      path:""
+    }
+  };
+
   constructor(private comicSvc: ComicService, @Inject(MAT_DIALOG_DATA) public data: any) {}
   ngOnInit(): void{
     this.comicSvc.getComic(this.data.resourceUri).pipe(

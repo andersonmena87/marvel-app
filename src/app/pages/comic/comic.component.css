@@ -3,9 +3,19 @@
 }
 
 .header-comic {
-  height: 200px;
+  height: 300px;
   width: 200px;
   background-size: 200px;
   background-repeat: no-repeat;
   border-radius: 0;
+}
+
+.content-btn-close {
+  text-align: right;
+}
+
+.btn-close {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
 }

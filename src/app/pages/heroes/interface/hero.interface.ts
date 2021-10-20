@@ -12,5 +12,6 @@ export interface iHero {
   name:string,
   description:string,
   thumbnail:iThumbnail,
-  comics: iComics 
+  comics:iComics,
+  modified:string  
 }

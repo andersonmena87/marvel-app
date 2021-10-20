@@ -19,6 +19,7 @@ export class HeroesComponent implements OnInit {
   favouritesSrc = './assets/images/favourites.png';
   deleteSrc = './assets/images/btn-delete.png';
   heroes!:iHero[];
+  heroes$ = this.heroesSvc.heroesAction$;
   favourites$ = this.favouritesSvc.favoriteAction$;
   search: string = '';
   length: number = 0;
@@ -29,11 +30,12 @@ export class HeroesComponent implements OnInit {
   ngOnInit(): void{
     this.heroesSvc.getHeroes().pipe(
       tap((res:any) => {
-        let results = res.data.results
-        this.heroes = results.filter(function (data:any) {
-            return data.description;
-          });
+        let results = res.data.results.filter(function (data:any) {
+          return data.description;
+        });
+        this.heroes = results;
         this.length = this.heroes.length;
+        this.heroesSvc.updateHeroes(results);
       })
     )
     .subscribe();
@@ -46,10 +48,11 @@ export class HeroesComponent implements OnInit {
   }
 
   addToFavourite(comic: iComic): void {
-    const { id } = comic;
-    const currentFavourites =  this.favouritesSvc.getFavourites();
-    const found = !!currentFavourites.find((fav: iComic) => fav.id == id);
     if(comic){
+      const { id } = comic;
+      const currentFavourites =  this.favouritesSvc.getFavourites();
+      const found = !!currentFavourites.find((fav: iComic) => fav.id == id);
+    
       if(!found)
       this.favouritesSvc.updateFavourites(comic)
       else
@@ -58,10 +61,9 @@ export class HeroesComponent implements OnInit {
   }
 
   onClickDeleteFavorite(id: number): void {
-    console.log(id);
     const currentFavourites =  this.favouritesSvc.getFavourites();
     const found = currentFavourites.find((fav: iComic) => fav.id == id);
-    console.log("found",found);
+    
     if(found)
     this.favouritesSvc.deleteFavourite(id)
   }
@@ -73,6 +75,20 @@ export class HeroesComponent implements OnInit {
   pageEvent(e:PageEvent) {
     this.page = e.pageIndex;
     this.pageSize = e.pageSize;
+  }
+
+  onOptionsSelected(value:string): void {
+    let heroes = this.heroes;
+    if(value == "byName"){
+      heroes = this.heroes.slice();
+      heroes = heroes.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+      
+    }else if(value == "byModified"){
+      heroes = this.heroes.slice();
+      heroes = heroes.sort((a,b) => (a.modified > b.modified) ? 1 : ((b.modified > a.modified) ? -1 : 0));
+    }
+
+    this.heroesSvc.updateHeroes(heroes);
   }
 
 }
