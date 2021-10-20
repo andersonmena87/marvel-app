@@ -16,6 +16,8 @@ import {PageEvent} from '@angular/material/paginator';
 export class HeroesComponent implements OnInit {
   @Input() searchSubject!: Subject<string>;
   charactersSrc = './assets/images/characters.png';
+  favouritesSrc = './assets/images/favourites.png';
+  deleteSrc = './assets/images/btn-delete.png';
   heroes!:iHero[];
   favourites$ = this.favouritesSvc.favoriteAction$;
   search: string = '';
@@ -53,6 +55,15 @@ export class HeroesComponent implements OnInit {
       else
       alert("Comic has already been added")
     }
+  }
+
+  onClickDeleteFavorite(id: number): void {
+    console.log(id);
+    const currentFavourites =  this.favouritesSvc.getFavourites();
+    const found = currentFavourites.find((fav: iComic) => fav.id == id);
+    console.log("found",found);
+    if(found)
+    this.favouritesSvc.deleteFavourite(id)
   }
 
   onSearchHero(search: string) {

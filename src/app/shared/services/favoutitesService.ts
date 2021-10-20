@@ -59,4 +59,11 @@ export class FavouritesService {
     localStorage.setItem(my_favorites, JSON.stringify(favouritesStorage));
   }
 
+  deleteFavourite(id:number): void {
+    let favourites = this.favourites.filter( favorite => favorite.id !== id);
+    this.favourites = favourites;
+    this.favoriteSubject.next(this.favourites);
+    localStorage.setItem(my_favorites, JSON.stringify(this.favourites));
+  }
+
 }

@@ -41,7 +41,7 @@
 }
 
 .img-favorite{
-  height: 200px;
+  height: 300px;
   width: 200px;
   background-size: 200px;
   background-repeat: no-repeat;
@@ -53,4 +53,21 @@
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
+}
+
+.favourites .content-image {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.favourites h2 {
+  margin-left: 10px;
+}
+
+.img-favorite-delete {
+  position: absolute;
+  top: 0;
+  right: 89px;
+  cursor: pointer;
 }

@@ -27,9 +27,16 @@
     </mat-paginator>
   </section>
   <section class="favourites">
-    <h2>My favourites</h2>
+    <div class="content-image">
+      <span><img src={{favouritesSrc}}></span>
+      <h2>My favourites</h2>
+    </div>
     <div *ngFor="let favorite of favourites$ | async">
       <mat-card class="favorite-card">
+        <img 
+        (click)="onClickDeleteFavorite(favorite.id)"
+        class="img-favorite-delete" 
+        src={{deleteSrc}}>
         <img class="img-favorite" mat-card-image style="background-image:url('{{favorite.thumbnail.path}}.{{favorite.thumbnail.extension}}')">
         <mat-card-content>
           <p>
