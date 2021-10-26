@@ -35,7 +35,7 @@
 }
 
 .comics a:hover:before {
-  content: URL('../../assets/images/link-arrow.png');
+  content: URL('./assets/images/link-arrow.png');
   position: relative;
   top: 6px;
 }
