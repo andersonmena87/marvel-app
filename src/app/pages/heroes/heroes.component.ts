@@ -51,15 +51,23 @@ export class HeroesComponent implements OnInit {
     if(comic){
       const { id } = comic;
       const currentFavourites =  this.favouritesSvc.getFavourites();
-      const found = !!currentFavourites.find((fav: iComic) => fav.id == id);
-    
-      if(!found)
-      this.favouritesSvc.updateFavourites(comic)
-      else
-      alert("Comic has already been added")
-    }
-  }
+      let found:boolean;
 
+      if(currentFavourites){
+        found = !!currentFavourites.find((fav: iComic) => fav.id == id);
+        if(!found){
+          this.favouritesSvc.updateFavourites(comic);
+        }
+        else{
+          alert("Comic has already been added");
+        }
+      }else{
+        this.favouritesSvc.updateFavourites(comic);
+      }
+    }
+      
+  }
+  
   onClickDeleteFavorite(id: number): void {
     const currentFavourites =  this.favouritesSvc.getFavourites();
     const found = currentFavourites.find((fav: iComic) => fav.id == id);

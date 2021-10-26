@@ -15,7 +15,6 @@ export class HeroDetailComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
   ngOnInit(): void{
     this.heroDetail = this.data.hero;
-    console.log(this.heroDetail);
   }
 
 }
