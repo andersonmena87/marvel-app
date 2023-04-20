@@ -1,8 +1,8 @@
 import { Component, Inject} from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { tap } from "rxjs/operators";
-import { iComic } from './interface/comic.interface';
-import { ComicService } from './services/comic.service';
+import { iComic } from '../../models/comic.interface';
+import { ComicService } from '../../services/comic.service';
 
 @Component({
   selector: 'app-comic',
@@ -13,7 +13,7 @@ import { ComicService } from './services/comic.service';
 export class ComicComponent {
   closeSrc = './assets/images/btn-close.png';
   imgSrc = './assets/images/btn-favourites-default.png';
-  
+
   comic:iComic = {
     id:0,
     title:"",

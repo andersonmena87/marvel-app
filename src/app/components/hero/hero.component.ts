@@ -1,9 +1,9 @@
 import { Component, Input, Output, EventEmitter} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ComicComponent } from '../comic/comic.component';
-import { iComic } from '../comic/interface/comic.interface';
+import { iComic } from '../../models/comic.interface';
 import { HeroDetailComponent } from '../heroDetail/heroDetail.component';
-import { iHero } from '../heroes/interface/hero.interface';
+import { iHero } from '../../models/hero.interface';
 
 @Component({
   selector: 'app-hero',
