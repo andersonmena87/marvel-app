@@ -1,12 +1,11 @@
 <mat-card class="card">
   <mat-card-header>
-    <div mat-card-avatar class="header-image" style="background-image:url('{{hero.thumbnail.path}}.{{hero.thumbnail.extension}}')">
-    </div>
+    <img mat-card-avatar class="header-image" src='{{hero.thumbnail.path}}.{{hero.thumbnail.extension}}'/>
     <mat-card-title>{{hero.name}}</mat-card-title>
     <mat-card-subtitle>
-      <div class="hero-description">
+      <p class="hero-description">
         {{hero.description}}
-      </div>
+      </p>
       <button class="btn-card" mat-flat-button color="warn" (click)="onClickHero()">VIEW MORE</button>
     </mat-card-subtitle>
   </mat-card-header>

@@ -1,11 +1,11 @@
 interface iThumbnail {
-  extension:string,
-  path:string 
+  extension: string,
+  path: string
 }
 
 export interface iComic {
-  id:number;
-  title:string,
-  description:string,
-  thumbnail:iThumbnail
+  id: number;
+  title: string,
+  description: string,
+  thumbnail: iThumbnail
 }

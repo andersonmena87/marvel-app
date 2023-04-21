@@ -1,6 +1,6 @@
 .card {
   margin: 5px;
-  min-height: 180px;
+  min-height: 389px;
   min-width: 400px;
   max-width: 400px;
 }
@@ -28,6 +28,7 @@
 
 .comics a {
   cursor:  pointer;
+  transition: all 300ms;
 }
 
 .comics a:hover {
@@ -42,10 +43,10 @@
 
 .hero-description {
   overflow: hidden;
-  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
+  min-height: 120px;
 }
 
 .btn-card {

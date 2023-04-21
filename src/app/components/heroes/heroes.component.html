@@ -18,8 +18,8 @@
     <div class="content-heroes" *ngIf="heroes$ | async as heroesList">
       <app-hero
         (addToFavouriteClick)="addToFavourite($event)"
-        [hero]="hero" 
-        *ngFor="let hero of heroesList| filtro:page:pageSize:search">
+        [hero]="hero"
+        *ngFor="let hero of heroesList | filtro:page:pageSize:search">
       </app-hero>
     </div>
     <mat-paginator [length]="length"
@@ -31,16 +31,18 @@
   </section>
   <section class="favourites">
     <div class="content-image">
-      <span><img src={{favouritesSrc}}></span>
+      <span>
+        <img src={{favouritesSrc}} />
+      </span>
       <h2>My favourites</h2>
     </div>
     <div *ngFor="let favorite of favourites$ | async">
       <mat-card class="favorite-card">
-        <img 
+        <img
         (click)="onClickDeleteFavorite(favorite.id)"
-        class="img-favorite-delete" 
+        class="img-favorite-delete"
         src={{deleteSrc}}>
-        <img class="img-favorite" mat-card-image style="background-image:url('{{favorite.thumbnail.path}}.{{favorite.thumbnail.extension}}')">
+        <img class="img-favorite" mat-card-image src='{{favorite.thumbnail.path}}.{{favorite.thumbnail.extension}}' />
         <mat-card-content>
           <p [innerHTML]="favorite.description">
           </p>
