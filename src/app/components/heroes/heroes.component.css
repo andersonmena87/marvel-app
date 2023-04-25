@@ -4,7 +4,7 @@
 }
 
 .heroes {
-  width:70%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   background: #F4F4F4;
@@ -16,11 +16,11 @@
   background: #EBEBEB;
 }
 
-.favourites .mat-card{
+.favourites .mat-card {
   background: #EBEBEB;
   border: 0;
   margin-bottom: 10px;
-  box-shadow:none;
+  box-shadow: none;
 }
 
 
@@ -28,7 +28,6 @@
   display: flex;
   justify-content: space-between;
   margin-top: 2%;
-  padding: 0px 17px;
 }
 
 .characters .content-image {
@@ -40,7 +39,7 @@
   padding-right: 20px;
 }
 
-.img-favorite{
+.img-favorite {
   height: 300px;
   width: 200px;
   background-size: 200px;
@@ -51,8 +50,9 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
-  justify-content: center;
+  width: 97%;
+  justify-content: start;
+  margin: 0 auto;
 }
 
 .favourites .content-image {
@@ -77,4 +77,12 @@
   height: 41px;
   font-size: 16px;
   padding: 10px;
+}
+
+.loading {
+  display: block;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  min-height: 470px;
 }

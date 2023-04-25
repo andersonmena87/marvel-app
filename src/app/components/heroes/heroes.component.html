@@ -15,19 +15,21 @@
         </select>
       </div>
     </div>
-    <div class="content-heroes" *ngIf="heroes$ | async as heroesList">
-      <app-hero
-        (addToFavouriteClick)="addToFavourite($event)"
-        [hero]="hero"
-        *ngFor="let hero of heroesList | filtro:page:pageSize:search">
-      </app-hero>
-    </div>
-    <mat-paginator [length]="length"
-               [pageSize]="pageSize"
-               [pageSizeOptions]="pageSizeOptions"
-               (page)="pageEvent($event)"
-               aria-label="Select page">
-    </mat-paginator>
+    <ng-container *ngIf="!loading; else dataLoading">
+      <div class="content-heroes" *ngIf="heroes$ | async as heroesList">
+        <app-hero
+          (addToFavouriteClick)="addToFavourite($event)"
+          [hero]="hero"
+          *ngFor="let hero of heroesList | filtro:page:pageSize:search">
+        </app-hero>
+      </div>
+      <mat-paginator [length]="length"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="pageSizeOptions"
+                 (page)="pageEvent($event)"
+                 aria-label="Select page">
+      </mat-paginator>
+    </ng-container>
   </section>
   <section class="favourites">
     <div class="content-image">
@@ -51,3 +53,7 @@
     </div>
   </section>
 </div>
+
+<ng-template #dataLoading>
+  <p class="loading">Cargando ...</p>
+</ng-template>

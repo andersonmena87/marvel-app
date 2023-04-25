@@ -26,6 +26,7 @@ export class HeroesComponent implements OnInit {
   page: number = 0;
   pageSize: number = 10;
   pageSizeOptions: number[] = [10, 25, 100];
+  loading: boolean = true;
   constructor(private heroesSvc: HeroesService, private favouritesSvc: FavouritesService) {}
   ngOnInit(): void{
     this.heroesSvc.getHeroes().pipe(
@@ -36,6 +37,7 @@ export class HeroesComponent implements OnInit {
         this.heroes = results;
         this.length = this.heroes.length;
         this.heroesSvc.updateHeroes(results);
+        this.loading = false;
       })
     )
     .subscribe();

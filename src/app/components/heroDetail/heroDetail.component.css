@@ -18,6 +18,9 @@
   width: 25px;
   height: 25px;
   cursor: pointer;
+  display: block;
+  position: fixed;
+  margin-left: 580px;
 }
 
 .mat-dialog-actions {

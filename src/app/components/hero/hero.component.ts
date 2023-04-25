@@ -16,7 +16,7 @@ export class HeroComponent {
   @Input() hero!: iHero;
   @Output() addToFavouriteClick = new EventEmitter<iComic>();
   onClickHero(): void {
-    const dialogRef = this.dialog.open(HeroDetailComponent, {
+    this.dialog.open(HeroDetailComponent, {
       data: {
         hero: this.hero
       }
