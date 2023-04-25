@@ -1,8 +1,16 @@
 .card {
   margin: 5px;
-  min-height: 180px;
+  min-height: 350px;
   min-width: 400px;
   max-width: 400px;
+}
+
+.mat-card-header .mat-card-title {
+  padding-bottom: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 174px;
 }
 
 .header-image {
@@ -27,25 +35,32 @@
 }
 
 .comics a {
-  cursor:  pointer;
+  cursor: pointer;
+  display: block;
+  padding-bottom: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: all 300ms;
 }
 
 .comics a:hover {
-  color:  red;
+  color: rgba(220, 29, 35, 1);
+  padding: 0px;
 }
 
 .comics a:hover:before {
   content: URL('./assets/images/link-arrow.png');
   position: relative;
-  top: 6px;
+  top: 5px;
 }
 
 .hero-description {
   overflow: hidden;
-  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
+  min-height: 120px;
 }
 
 .btn-card {

@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --base-href /marvel-app/ --aot --build-optimizer --delete-output-path --optimization --progress",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

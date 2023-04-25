@@ -3,8 +3,7 @@
     <img class="btn-close" mat-dialog-close src={{closeSrc}}/>
   </div>
   <mat-card-header>
-    <div mat-card-avatar class="header-heroDetail" style="background-image:url('{{heroDetail.thumbnail.path}}.{{heroDetail.thumbnail.extension}}')">
-    </div>
+    <img mat-card-avatar class="header-heroDetail" src='{{heroDetail.thumbnail.path}}.{{heroDetail.thumbnail.extension}}' />
     <mat-card-title>{{heroDetail.name}}</mat-card-title>
     <mat-card-subtitle [innerHTML]="heroDetail.description">
     </mat-card-subtitle>

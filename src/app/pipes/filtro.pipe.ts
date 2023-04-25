@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { iHero } from '../interface/hero.interface';
+import { iHero } from '../models/hero.interface';
 
 @Pipe({
   name: 'filtro'

@@ -1,7 +1,6 @@
-import { analyzeAndValidateNgModules } from "@angular/compiler";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, Subject } from "rxjs";
-import { iComic } from "src/app/pages/comic/interface/comic.interface";
+import { iComic } from "../models/comic.interface";
 
 const my_favorites = "favourites";
 @Injectable({
@@ -28,7 +27,7 @@ export class FavouritesService {
     else
       this.favourites = [];
 
-    this.favoriteSubject.next(this.favourites); 
+    this.favoriteSubject.next(this.favourites);
   }
 
   getFavourites(): any {
@@ -38,9 +37,9 @@ export class FavouritesService {
         this.favourites = favouritesStorage;
       else
         this.favourites = [];
-  
-      this.favoriteSubject.next(this.favourites); 
-      return favouritesStorage; 
+
+      this.favoriteSubject.next(this.favourites);
+      return favouritesStorage;
     } catch (error) {
       console.log('Error localstorage', error);
     }

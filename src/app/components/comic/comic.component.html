@@ -3,8 +3,7 @@
     <img class="btn-close" mat-dialog-close src={{closeSrc}}/>
   </div>
   <mat-card-header>
-    <div mat-card-avatar class="header-comic" style="background-image:url('{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}')">
-    </div>
+    <img mat-card-avatar class="header-comic" src='{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}' />
     <mat-card-title>{{comic.title}}</mat-card-title>
     <mat-card-subtitle [innerHTML]="comic.description">
     </mat-card-subtitle>

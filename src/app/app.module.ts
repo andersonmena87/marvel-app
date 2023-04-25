@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/components/header/header.component';
+import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material.module';
-import { HeroesComponent } from './pages/heroes/heroes.component';
+import { MaterialModule } from './moduls/material.module';
+import { HeroesComponent } from './components/heroes/heroes.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HeroComponent } from './pages/hero/hero.component';
-import { ComicComponent } from './pages/comic/comic.component';
-import { FiltroPipe } from "./pages/heroes/pipes/filtro.pipe";
-import { HeroDetailComponent } from './pages/heroDetail/heroDetail.component';
+import { HeroComponent } from './components/hero/hero.component';
+import { ComicComponent } from './components/comic/comic.component';
+import { FiltroPipe } from "./pipes/filtro.pipe";
+import { HeroDetailComponent } from './components/heroDetail/heroDetail.component';
 
 @NgModule({
   declarations: [

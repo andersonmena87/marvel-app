@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { HeroesService } from "./services/heroes.service";
+import { HeroesService } from "../../services/heroes.service";
 import { tap } from "rxjs/operators";
-import { iHero } from "./interface/hero.interface";
-import { iComic } from "../comic/interface/comic.interface";
-import { FavouritesService } from "src/app/shared/services/favoutitesService";
+import { iHero } from "../../models/hero.interface";
+import { iComic } from "../../models/comic.interface";
+import { FavouritesService } from "src/app/services/favoutitesService";
 import { Subject } from "rxjs";
 import {PageEvent} from '@angular/material/paginator';
 
@@ -26,6 +26,7 @@ export class HeroesComponent implements OnInit {
   page: number = 0;
   pageSize: number = 10;
   pageSizeOptions: number[] = [10, 25, 100];
+  loading: boolean = true;
   constructor(private heroesSvc: HeroesService, private favouritesSvc: FavouritesService) {}
   ngOnInit(): void{
     this.heroesSvc.getHeroes().pipe(
@@ -36,13 +37,14 @@ export class HeroesComponent implements OnInit {
         this.heroes = results;
         this.length = this.heroes.length;
         this.heroesSvc.updateHeroes(results);
+        this.loading = false;
       })
     )
     .subscribe();
 
     this.searchSubject.subscribe((search: string) => {
       this.search = search;
-    });  
+    });
 
     this.favouritesSvc.loadFavourites();
   }
@@ -65,13 +67,13 @@ export class HeroesComponent implements OnInit {
         this.favouritesSvc.updateFavourites(comic);
       }
     }
-      
+
   }
-  
+
   onClickDeleteFavorite(id: number): void {
     const currentFavourites =  this.favouritesSvc.getFavourites();
     const found = currentFavourites.find((fav: iComic) => fav.id == id);
-    
+
     if(found)
     this.favouritesSvc.deleteFavourite(id)
   }
@@ -90,7 +92,7 @@ export class HeroesComponent implements OnInit {
     if(value == "byName"){
       heroes = this.heroes.slice();
       heroes = heroes.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
-      
+
     }else if(value == "byModified"){
       heroes = this.heroes.slice();
       heroes = heroes.sort((a,b) => (a.modified > b.modified) ? 1 : ((b.modified > a.modified) ? -1 : 0));
