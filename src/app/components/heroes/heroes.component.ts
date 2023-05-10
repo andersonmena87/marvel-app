@@ -3,7 +3,7 @@ import { HeroesService } from "../../services/heroes.service";
 import { tap } from "rxjs/operators";
 import { iHero } from "../../models/hero.interface";
 import { iComic } from "../../models/comic.interface";
-import { FavouritesService } from "src/app/services/favoutitesService";
+import { FavouritesService } from "src/app/services/favorites.service";
 import { Subject } from "rxjs";
 import {PageEvent} from '@angular/material/paginator';
 
