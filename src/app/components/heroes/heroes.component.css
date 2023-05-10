@@ -58,11 +58,21 @@
 .favourites .content-image {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 10px;
 }
 
 .favourites h2 {
   margin-left: 10px;
+}
+
+.favourites .content-image h2 {
+  margin: 0px;
+  margin-left: 16px;
+}
+
+.favourites .mat-card-content > p {
+  text-align: left;
 }
 
 .img-favorite-delete {
